@@ -37,9 +37,8 @@ services:
         condition: on-failure
 
 networks:
-  # La definimos como externa porque la crearemos en el script de shell
   jenkins_cesar:
-    driver: overlay
+    external: true  # <--- ¡ESTE ES EL CAMBIO CLAVE! Le dice a Swarm que use la red que ya creó el script
 
 volumes:
   db_data:
